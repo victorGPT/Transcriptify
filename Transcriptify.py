@@ -2,6 +2,7 @@ import os
 import time
 import openai
 from tqdm import tqdm
+import subprocess
 
 # Define API key file path
 API_KEY_PATH = os.path.expanduser("~/.openai")
@@ -20,6 +21,9 @@ while not openai.api_key:
     with open(API_KEY_PATH, "w") as f:
         f.write(api_key)
 
+# Get ffmpeg path
+ffmpeg_path = subprocess.check_output(['which', 'ffmpeg']).decode().strip()
+
 def compress_audio(input_file):
     # Get input file size
     file_size = os.path.getsize(input_file)
@@ -28,7 +32,7 @@ def compress_audio(input_file):
 
     # Compress audio file using ffmpeg
     output_file = f"{os.path.splitext(input_file)[0]}_compressed.mp3"
-    command = f"ffmpeg -i {input_file} -ac 1 -ar 16000 -ab 32k {output_file}"
+    command = f"{ffmpeg_path} -i {input_file} -ac 1 -ar 16000 -ab 32k {output_file}"
     os.system(command)
 
     return output_file
