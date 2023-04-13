@@ -1,7 +1,7 @@
 
-## Whisper-OpenAI: A Python Script for Speech-to-Text
+## Transcriptify: A Python Script for Speech-to-Text
 
-Whisper-OpenAI is a Python script for converting speech to text, created using ChatGPT and OpenAI's Whisper technology. The script has the following features:
+Transcriptify is a Python script for converting speech to text, created using ChatGPT and OpenAI's Whisper technology. The script has the following features:
 
 ### Features:
 1. Automatically compresses audio files larger than 25MB (because OpenAI only supports files under 25MB), allowing users to use larger audio files for speech-to-text.
@@ -18,7 +18,7 @@ Before using the script, make sure that the following environments and libraries
 
 If you don't know how to install the above environments and libraries, don't worry, you can consult ChatGPT for help and support, as the script author did.
 
-In summary, Whisper-OpenAI is a convenient and efficient Python script for speech-to-text, supporting compression of large files and output in multiple subtitle formats. Users need to install the corresponding environment and libraries before using the script, or consult ChatGPT for help and support.
+In summary, Transcriptify is a convenient and efficient Python script for speech-to-text, supporting compression of large files and output in multiple subtitle formats. Users need to install the corresponding environment and libraries before using the script, or consult ChatGPT for help and support.
 
 ## Version Update
 ### 1.0.1v 

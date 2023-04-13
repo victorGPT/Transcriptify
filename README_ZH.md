@@ -1,6 +1,6 @@
-## Whisper-OpenAI：一款语音转文字的Python脚本
+## Transcriptify：一款语音转文字的Python脚本
 
-Whisper-OpenAI是一款利用ChatGPT和OpenAI的Whisper技术制作的语音转文字的Python脚本。该脚本有如下特点：
+Transcriptify是一款利用ChatGPT和OpenAI的Whisper技术制作的语音转文字的Python脚本。该脚本有如下特点：
 
 ### 特点：
 1. 自动将大于25MB的音频文件压缩（因为OpenAI只支持25MB以下的文件），使得用户可以使用更大的音频文件进行语音转文字。
@@ -17,7 +17,7 @@ Whisper-OpenAI是一款利用ChatGPT和OpenAI的Whisper技术制作的语音转�
 
 如果你不知道如何安装上述环境和库，如果你不知道怎么操作，请放心咨询ChatGPT，因为脚本作者我就是这么做的。
 
-总之，Whisper-OpenAI是一款方便快捷的语音转文字的Python脚本，支持大文件压缩和多种字幕格式输出。使用该脚本前，用户需要安装相应的环境和库，或者咨询ChatGPT获取帮助和支持。
+总之，Transcriptify是一款方便快捷的语音转文字的Python脚本，支持大文件压缩和多种字幕格式输出。使用该脚本前，用户需要安装相应的环境和库，或者咨询ChatGPT获取帮助和支持。
 
 ## 版本更新
 ###1.0.1v 
