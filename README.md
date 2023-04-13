@@ -1,4 +1,4 @@
-
+English |[中文](https://github.com/victorGPT/Transcriptify/blob/main/README_ZH.md)
 ## Transcriptify: A Python Script for Speech-to-Text
 
 Transcriptify is a Python script for converting speech to text, created using ChatGPT and OpenAI's Whisper technology. The script has the following features:
@@ -22,6 +22,7 @@ In summary, Transcriptify is a convenient and efficient Python script for speech
 
 ## Version Update
 ### 1.0.1v 
+
 2023/04/13
 
 Changed the file processing logic, now following the process flow:

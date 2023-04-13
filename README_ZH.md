@@ -1,3 +1,4 @@
+[English](https://github.com/victorGPT/Transcriptify/blob/main/README.md) |中文
 ## Transcriptify：一款语音转文字的Python脚本
 
 Transcriptify是一款利用ChatGPT和OpenAI的Whisper技术制作的语音转文字的Python脚本。该脚本有如下特点：
@@ -21,6 +22,7 @@ Transcriptify是一款利用ChatGPT和OpenAI的Whisper技术制作的语音转�
 
 ## 版本更新
 ###1.0.1v 
+
 2023/04/13
 
 修改了对文件处理的逻辑，现在文件处理逻辑遵守以下流程
