@@ -31,19 +31,21 @@ def compress_audio(input_file):
     command = f"ffmpeg -i {input_file} -ac 1 -ar 16000 -ab 32k {output_file}"
     os.system(command)
 
-    # Remove original file
-    os.remove(input_file)
-
     return output_file
 
 def transcribe_audio(input_file, output_file, response_format, progress_bar):
     with open(input_file, "rb") as f:
-     transcript = openai.Audio.transcribe("whisper-1", f, response_format=response_format)
+        transcript = openai.Audio.transcribe("whisper-1", f, response_format=response_format)
 
-     progress_bar.update(100)
+    progress_bar.update(100)
 
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(transcript)
+
+    # Remove compressed file
+    compressed_file = f"{os.path.splitext(input_file)[0]}_compressed.mp3"
+    if os.path.exists(compressed_file):
+        os.remove(compressed_file)
 
 input_file = input("请输入音频文件名（包括扩展名）：").strip("'\"")
 output_format = input("请输入输出格式（txt、vtt、srt、tsv、json、all）：").strip("'\"")
