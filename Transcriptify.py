@@ -22,7 +22,18 @@ while not openai.api_key:
         f.write(api_key)
 
 # Get ffmpeg path
-ffmpeg_path = subprocess.check_output(['which', 'ffmpeg']).decode().strip()
+if os.name == 'nt':  # Windows系统
+    try:
+        ffmpeg_path = subprocess.check_output(['where', 'ffmpeg']).decode().strip()
+    except:
+        print('请确认ffmpeg已安装并配置到环境变量PATH中')
+        exit()
+else:  # Linux和Mac系统
+    try:
+        ffmpeg_path = subprocess.check_output(['which', 'ffmpeg']).decode().strip()
+    except:
+        print('请确认ffmpeg已安装并配置到环境变量PATH中')
+        exit()
 
 def compress_audio(input_file):
     # Get input file size
@@ -32,7 +43,7 @@ def compress_audio(input_file):
 
     # Compress audio file using ffmpeg
     output_file = f"{os.path.splitext(input_file)[0]}_compressed.mp3"
-    command = f"{ffmpeg_path} -i {input_file} -ac 1 -ar 16000 -ab 32k {output_file}"
+    command = f"{ffmpeg_path} -i {input_file} -ac 1 -ar 16000 -ab 16k {output_file}"
     os.system(command)
 
     return output_file
