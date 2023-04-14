@@ -22,7 +22,18 @@ while not openai.api_key:
         f.write(api_key)
 
 # Get ffmpeg path
-ffmpeg_path = subprocess.check_output(['which', 'ffmpeg']).decode().strip()
+if os.name == 'nt':  # Windows system
+    try:
+        ffmpeg_path = subprocess.check_output(['where', 'ffmpeg']).decode().strip()
+    except:
+        print('Please make sure ffmpeg is installed and added to the PATH environment variable')
+        exit()
+else:  # Linux and Mac systems
+    try:
+        ffmpeg_path = subprocess.check_output(['which', 'ffmpeg']).decode().strip()
+    except:
+        print('Please make sure ffmpeg is installed and added to the PATH environment variable')
+        exit()
 
 def compress_audio(input_file):
     # Get input file size
@@ -32,7 +43,7 @@ def compress_audio(input_file):
 
     # Compress audio file using ffmpeg
     output_file = f"{os.path.splitext(input_file)[0]}_compressed.mp3"
-    command = f"{ffmpeg_path} -i {input_file} -ac 1 -ar 16000 -ab 32k {output_file}"
+    command = f"{ffmpeg_path} -i {input_file} -ac 1 -ar 16000 -ab 16k {output_file}"
     os.system(command)
 
     return output_file
@@ -73,6 +84,6 @@ transcribe_audio(input_file, output_file, output_format, progress_bar)
 progress_bar.close()
 
 elapsed_time = time.time() - start_time
-print(f"Transcription completed in {elapsed_time:.2f} seconds")
+print(f"Audio transcription completed in {elapsed_time:.2f} seconds")
 
-print(f"Transcription saved to {output_file}")
+print(f"Transcript saved to {output_file}")
