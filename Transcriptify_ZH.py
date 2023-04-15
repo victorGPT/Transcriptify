@@ -43,7 +43,7 @@ def compress_audio(input_file):
 
     # Compress audio file using ffmpeg
     output_file = f"{os.path.splitext(input_file)[0]}_compressed.mp3"
-    command = f"{ffmpeg_path} -i {input_file} -ac 1 -ar 16000 -ab 16k {output_file}"
+    command = f"{ffmpeg_path} -i {input_file} -ac 1 -ar 16000 -ab 32k {output_file}"
     os.system(command)
 
     return output_file
